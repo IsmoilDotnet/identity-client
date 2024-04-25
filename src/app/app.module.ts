@@ -31,6 +31,7 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule,
     RouterLink,
     HttpClientModule,
+    TranslocoRootModule,
   ],
   providers: [
     provideAnimationsAsync(),
