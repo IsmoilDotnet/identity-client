@@ -1,6 +1,7 @@
-![Alt Text]("c:\Users\dotnetbillioner\Pictures\Screenshots\Screenshot 2024-04-25 113951.png")
-![Alt Text]("c:\Users\dotnetbillioner\Pictures\Screenshots\Screenshot 2024-04-25 113935.png")
-![Alt Text]("c:\Users\dotnetbillioner\Pictures\Screenshots\Screenshot 2024-04-25 113913.png")
+![Screenshot 1](C:/Users/dotnetbillioner/Pictures/Screenshots/Screenshot%202024-04-25%20113951.png)
+![Screenshot 2](C:/Users/dotnetbillioner/Pictures/Screenshots/Screenshot%202024-04-25%20113935.png)
+![Screenshot 3](C:/Users/dotnetbillioner/Pictures/Screenshots/Screenshot%202024-04-25%20113913.png)
+
 # IdentityClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
