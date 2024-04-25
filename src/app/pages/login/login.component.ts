@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { jwtDecode } from "jwt-decode"
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit{
 
   matSnackBar = inject(MatSnackBar);
   router = inject(Router);
@@ -20,10 +21,11 @@ export class LoginComponent implements OnInit {
   decodedToken: any | null;
   tokenKey = 'token' 
   roles: string[] = [];
+  
   login(){
     this.authService.login(this.form.value).subscribe(
       {
-        next: (response: { message: any; }) => {
+        next: (response) => {
           console.log(response);
 
           this.decodedToken = jwtDecode(localStorage.getItem(this.tokenKey)!)
@@ -40,9 +42,9 @@ export class LoginComponent implements OnInit {
               console.log(this.decodedToken.role[index]);
               this.router.navigate(['/student-profile'])
             }
-
+            
           }
-
+          
 
           this.matSnackBar.open(response.message, 'Close', {
             duration: 5000,
@@ -52,7 +54,7 @@ export class LoginComponent implements OnInit {
 
         },
         error: (err) => {
-
+          
           console.log(err);
 
           this.matSnackBar.open(err.error.message, 'Close', {
@@ -60,19 +62,18 @@ export class LoginComponent implements OnInit {
             horizontalPosition: 'center'
           })
         }
-
+        
       }
     )
   }
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-    });
-  }
+  
+    ngOnInit(): void {
+      this.form = this.fb.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required],
+      });
+    }
 
 }
-function jwtDecode(arg0: string): any {
-  throw new Error('Function not implemented.');
-}
+
 

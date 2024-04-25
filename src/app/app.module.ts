@@ -58,7 +58,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatSnackBarModule,
     RouterLink,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     provideAnimationsAsync(),

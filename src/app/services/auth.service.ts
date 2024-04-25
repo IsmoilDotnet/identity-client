@@ -6,6 +6,8 @@ import { environment } from '../../environments/environment.development';
 import { LoginResponse } from '../interfaces/login-response';
 import { Router } from '@angular/router';
 import { InvokeFunctionExpr } from '@angular/compiler';
+import { RegisterRequest } from '../interfaces/register-request';
+import { RegisterResponse } from '../interfaces/register-response';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,10 @@ export class AuthService {
   apiUrl = environment.apiUrl;
   tokenKey: string = 'token';
   router = Inject(Router)
+  
+  register(data1: RegisterRequest): Observable<RegisterResponse>{
+    return this.http.post<RegisterResponse>(`${this.apiUrl}Users/Register`, data1)
+  }
 
   login(data: LoginRequest): Observable<LoginResponse>{
     return this.http.post<LoginResponse>(`${this.apiUrl}Users/Login`, data).pipe(
